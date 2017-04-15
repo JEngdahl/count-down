@@ -1,0 +1,19 @@
+.Title {
+  margin-top: 20vh;
+  font-size: 15vh;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #e0a870;
+}
+.clock {
+  margin-top: 20vh;
+  font-size: 10vh;
+  text-align: center;
+  font-family: 'Concert One', cursive;
+  color: #e0a870;
+}
+.background {
+  height: 100vh;
+  width: 100vw;
+  background: no-repeat center/100% url("./luisa-rusche-2229.jpg");
+}

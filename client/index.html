@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Poppins" rel="stylesheet">  </head>
+  <body class = "background">
+    <h1 class = "Title"> Count Down to Florida </h1>
+    <h2 class="clock"></h2>
+    <script>
+    $( document ).ready(
+      function(){
+        function parseMillisecondsIntoReadableTime(milliseconds){
+          //Get hours from milliseconds
+          var hours = milliseconds / (1000*60*60);
+          var absoluteHours = Math.floor(hours);
+          var h = absoluteHours > 9 ? absoluteHours : '0' + absoluteHours;
+
+          //Get remainder from hours and convert to minutes
+          var minutes = (hours - absoluteHours) * 60;
+          var absoluteMinutes = Math.floor(minutes);
+          var m = absoluteMinutes > 9 ? absoluteMinutes : '0' +  absoluteMinutes;
+
+          //Get remainder from minutes and convert to seconds
+          var seconds = (minutes - absoluteMinutes) * 60;
+          var absoluteSeconds = Math.floor(seconds);
+          var s = absoluteSeconds > 9 ? absoluteSeconds : '0' + absoluteSeconds;
+
+
+          return h + ' Hours ' + m + ' Minutes ' + s + " Seconds ";
+        }
+
+        function countDown(){
+        var dari = new Date(2017, 4, 30);
+        var until = dari.getTime() - new Date().getTime()
+
+          return parseMillisecondsIntoReadableTime(until)
+        }
+
+        setInterval(function(){ $(".clock").replaceWith(`<h2 class="clock">${countDown()}</h2>`) }, 1000);
+
+
+            })
+    </script>
+  </body>
+</html>
