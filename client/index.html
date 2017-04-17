@@ -30,8 +30,14 @@
         let dari = new Date(2017, 3, 30);
         let until =  dari.getTime() - new Date().getTime()
         let time = convertMillisecondsToDigitalClock(until)
-        console.log(dari)
-          return `${time.days} days ${time.hours} hours ${time.minutes} minutes ${time.seconds} seconds`
+        function plurize(num,str){
+          if (num === 1){
+            return `${num} ${str} `
+          } else {
+            return `${num} ${str}s `
+          }
+        }
+          return `${plurize(time.days, "day")}${plurize(time.hours, "hour")}${plurize(time.minutes, "minute")}${plurize(time.seconds, "second")}`
         }
 
         setInterval(function(){ $(".clock").replaceWith(`<h2 class="clock col-md-12">${countDown()}</h2>`) }, 1000);
