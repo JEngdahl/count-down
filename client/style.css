@@ -8,14 +8,14 @@ body {
   background-color: transparent;
 }
 .Title {
-  margin-top: 20%;
+  margin-top: 10%;
   font-size: 7vw;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   color: #e0a870;
 }
 .clock {
-  margin-top: 20%;
+  margin-top: 15%;
   font-size: 6vw;
   text-align: center;
   font-family: 'Concert One', cursive;
