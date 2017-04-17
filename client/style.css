@@ -1,5 +1,5 @@
 html {
-  background-image: url(./luisa-rusche-2229.jpg);
+  background-image: url(./vita-vilcina-3054.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -12,12 +12,14 @@ body {
   font-size: 7vw;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  color: #e0a870;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
 }
 .clock {
   margin-top: 15%;
   font-size: 5vw;
   text-align: center;
   font-family: 'Concert One', cursive;
-  color: #e0a870;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
 }
