@@ -13,14 +13,15 @@
     $( document ).ready(
     function(){
         function convertMillisecondsToDigitalClock(ms) {
-            hours = Math.floor(ms / 3600000), // 1 Hour = 36000 Milliseconds
-            minutes = Math.floor((ms % 3600000) / 60000), // 1 Minutes = 60000 Milliseconds
-            seconds = Math.floor(((ms % 360000) % 60000) / 1000) // 1 Second = 1000 Milliseconds
+            days = Math.floor(ms / 86400000) // 1 day = 86400000 Milliseconds
+            hours = Math.floor((ms % 8640000) / 360000), // 1 Hour = 360000 Milliseconds
+            minutes = Math.floor(((ms % 8640000) % 360000) / 60000), // 1 Minutes = 60000 Milliseconds
+            seconds = Math.floor((((ms % 8640000) % 360000) % 60000) / 1000) // 1 Second = 1000 Milliseconds
                 return {
-                hours : hours,
-                minutes : minutes,
-                seconds : seconds,
-                clock : hours + ":" + minutes + ":" + seconds
+                days,
+                hours,
+                minutes,
+                seconds,
             };
         }
 
@@ -28,10 +29,9 @@
         function countDown(){
         let dari = new Date(2017, 3, 30);
         let until =  dari.getTime() - new Date().getTime()
-        console.log(until)
-        console.log(convertMillisecondsToDigitalClock(until))
         let time = convertMillisecondsToDigitalClock(until)
-          return `${time.hours} hours ${time.minutes} minutes ${time.seconds} seconds`
+        console.log(dari)
+          return `${time.days} days ${time.hours} hours ${time.minutes} minutes ${time.seconds} seconds`
         }
 
         setInterval(function(){ $(".clock").replaceWith(`<h2 class="clock col-md-12">${countDown()}</h2>`) }, 1000);
