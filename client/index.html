@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="http://code.jquery.com/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Concert+One|Poppins" rel="stylesheet">  </head>
-  <body class = "background">
-    <h1 class = "Title"> Count Down to Florida </h1>
-    <h2 class="clock"></h2>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  <body>
+      <h1 class="Title"> Count Down to Florida </h1>
+      <h2 class="clock col-md-8"></h2>
     <script>
     $( document ).ready(
-      function(){
-        function parseMillisecondsIntoReadableTime(milliseconds){
-          //Get hours from milliseconds
-          let hours = milliseconds / (1000*60*60);
-          let absoluteHours = Math.floor(hours);
-          let h = absoluteHours > 9 ? absoluteHours : '0' + absoluteHours;
-
-          //Get remainder from hours and convert to minutes
-          let minutes = (hours - absoluteHours) * 60;
-          let absoluteMinutes = Math.floor(minutes);
-          let m = absoluteMinutes > 9 ? absoluteMinutes : '0' +  absoluteMinutes;
-
-          //Get remainder from minutes and convert to seconds
-          let seconds = (minutes - absoluteMinutes) * 60;
-          let absoluteSeconds = Math.floor(seconds);
-          let s = absoluteSeconds > 9 ? absoluteSeconds : '0' + absoluteSeconds;
-
-
-          return h + ' Hours ' + m + ' Minutes ' + s + " Seconds ";
+    function(){
+        function convertMillisecondsToDigitalClock(ms) {
+            hours = Math.floor(ms / 3600000), // 1 Hour = 36000 Milliseconds
+            minutes = Math.floor((ms % 3600000) / 60000), // 1 Minutes = 60000 Milliseconds
+            seconds = Math.floor(((ms % 360000) % 60000) / 1000) // 1 Second = 1000 Milliseconds
+                return {
+                hours : hours,
+                minutes : minutes,
+                seconds : seconds,
+                clock : hours + ":" + minutes + ":" + seconds
+            };
         }
+
 
         function countDown(){
-        let dari = new Date(2017, 4, 30);
-        let until = dari.getTime() - new Date().getTime()
-
-          return parseMillisecondsIntoReadableTime(until)
+        let dari = new Date(2017, 3, 30);
+        let until =  dari.getTime() - new Date().getTime()
+        console.log(until)
+        console.log(convertMillisecondsToDigitalClock(until))
+        let time = convertMillisecondsToDigitalClock(until)
+          return `${time.hours} hours ${time.minutes} minutes ${time.seconds} seconds`
         }
 
-        setInterval(function(){ $(".clock").replaceWith(`<h2 class="clock">${countDown()}</h2>`) }, 1000);
+        setInterval(function(){ $(".clock").replaceWith(`<h2 class="clock col-md-12">${countDown()}</h2>`) }, 1000);
 
 
             })

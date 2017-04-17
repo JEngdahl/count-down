@@ -1,19 +1,23 @@
+html {
+  background-image: url(./luisa-rusche-2229.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+body {
+  background-color: transparent;
+}
 .Title {
-  margin-top: 20vh;
+  margin-top: 20%;
   font-size: 7vw;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   color: #e0a870;
 }
 .clock {
-  margin-top: 20vh;
+  margin-top: 20%;
   font-size: 6vw;
   text-align: center;
   font-family: 'Concert One', cursive;
   color: #e0a870;
-}
-.background {
-  height: 100%;
-  width: auto;
-  background: no-repeat center/100% url("./luisa-rusche-2229.jpg");
 }
