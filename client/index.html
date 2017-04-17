@@ -14,9 +14,9 @@
     function(){
         function convertMillisecondsToDigitalClock(ms) {
             days = Math.floor(ms / 86400000) // 1 day = 86400000 Milliseconds
-            hours = Math.floor((ms % 8640000) / 360000), // 1 Hour = 360000 Milliseconds
-            minutes = Math.floor(((ms % 8640000) % 360000) / 60000), // 1 Minutes = 60000 Milliseconds
-            seconds = Math.floor((((ms % 8640000) % 360000) % 60000) / 1000) // 1 Second = 1000 Milliseconds
+            hours = Math.floor((ms % 8640000) / 3600000), // 1 Hour = 3600000 Milliseconds
+            minutes = Math.floor(((ms % 8640000) % 3600000) / 60000), // 1 Minutes = 60000 Milliseconds
+            seconds = Math.floor((((ms % 8640000) % 3600000) % 60000) / 1000) // 1 Second = 1000 Milliseconds
                 return {
                 days,
                 hours,
@@ -30,6 +30,7 @@
         let dari = new Date(2017, 3, 30);
         let until =  dari.getTime() - new Date().getTime()
         let time = convertMillisecondsToDigitalClock(until)
+        console.log(time)
         function plurize(num,str){
           if (num === 1){
             return `${num} ${str} `
